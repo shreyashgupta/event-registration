@@ -1,0 +1,66 @@
+
+header
+{
+    font-size: max(5vw,40px);
+    text-align: center;
+}
+.event-list
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+}
+.event-list>div
+{
+    margin:20px;
+    box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+;
+border-radius: 2
+}
+/*.event-list div
+{
+flex: 0 0 33.333333%;
+}*/
+/*.event-list Eventcard
+{
+    margin: 10px;
+}*/
+/*.grid-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    .common-to-card {
+        background-color: aliceblue;
+        width: 13vw;
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+            transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+        }
+    }
+    
+    .total{
+        border-bottom: 10px solid rgba(0, 0, 255, 0.5);
+    }
+    
+    .available{
+        border-bottom: 10px solid rgba(0, 255, 0, 1);
+    }
+    
+    .sold{
+        border-bottom: 10px solid rgba(0, 0, 255, 1);
+    }
+    
+    .reserved{
+        border-bottom: 10px solid rgba(255, 100, 255, 1);
+    }
+}*/
+
