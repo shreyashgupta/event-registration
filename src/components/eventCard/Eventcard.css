@@ -1,0 +1,21 @@
+.tags{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.tags p
+{
+	font-size: 20px;
+	font-family: 'Times-New-Roman'
+}
+.ca
+{
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+}
+/*.ca Button
+{
+	width:100px;
+}*/
