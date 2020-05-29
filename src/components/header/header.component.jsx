@@ -17,7 +17,9 @@ const Header = ({ currentUser }) => (
                 <div className='option'>Hi! {currentUser.displayName}</div>
                 :null
                 }
+                <Link to className="option" to="/eventlist">EVENT-LIST</Link>
                 <Link to className="option" to="/eventregistration">EVENT-REGISTRATION</Link>
+
                 {/* <Link to className="option" to="/signin">SIGN IN</Link> */}
                 {
                     currentUser ? 

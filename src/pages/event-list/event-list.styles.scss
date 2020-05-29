@@ -1,0 +1,33 @@
+.grid-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    .common-to-card {
+        background-color: aliceblue;
+        width: 13vw;
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+            transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+        }
+    }
+    
+    .total{
+        border-bottom: 10px solid rgba(0, 0, 255, 0.5);
+    }
+    
+    .available{
+        border-bottom: 10px solid rgba(0, 255, 0, 1);
+    }
+    
+    .sold{
+        border-bottom: 10px solid rgba(0, 0, 255, 1);
+    }
+    
+    .reserved{
+        border-bottom: 10px solid rgba(255, 100, 255, 1);
+    }
+}
+
