@@ -46,6 +46,7 @@ class EventRegistration extends React.Component {
         if (member4.length) members[3] = member4;
 
         auth.onAuthStateChanged(async userAuth => {
+            if(userAuth)
             await addEventDetailsForUser(userAuth, eventId, eventName, phoneNumber, members);
         })
 
@@ -128,7 +129,7 @@ class EventRegistration extends React.Component {
                     <CustomButton type='submit' onClick={this.handleSubmit}>BUY TICKET(s)</CustomButton>
                 </div>
                 :
-                <h2>Please signin first</h2>
+                <h2>Please signin first before registering</h2>
         )
     }
 
