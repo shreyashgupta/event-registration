@@ -11,8 +11,11 @@ class SignIn extends React.Component {
 
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            history: props.historyProp
         }
+
+
     }
 
     handleSubmit = async (event) => {
@@ -21,15 +24,20 @@ class SignIn extends React.Component {
         const { email, password } = this.state;
 
         try {
-            
+
             await auth.signInWithEmailAndPassword(email, password);
             this.setState({ email: '', password: '' });
+            this.state.history.goBack();
         } catch (error) {
             console.log(error);
         }
 
+    }
 
-        
+    handleSignInWithGoogle = async (event) => {
+        await signInWithGoogle();
+        this.state.history.goBack();
+        console.log("Go Back");
     }
 
     handleChange = (event) => {
@@ -60,10 +68,10 @@ class SignIn extends React.Component {
                         label='password'
                         required
                     />
-                <div className='buttons'>
-                    <CustomButton type='submit'> SIGN IN </CustomButton>
-                    <CustomButton type='button' onClick={signInWithGoogle} isGoogleSignIn> SIGN IN WITH GOOGLE </CustomButton>
-                </div>
+                    <div className='buttons'>
+                        <CustomButton type='submit'> SIGN IN </CustomButton>
+                        <CustomButton type='button' onClick={this.handleSignInWithGoogle} isGoogleSignIn> SIGN IN WITH GOOGLE </CustomButton>
+                    </div>
                 </form>
             </div>
         )

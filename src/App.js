@@ -2,10 +2,11 @@ import React from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from './pages/homepage/homepage.component.jsx';
-import EventRegistration from './pages/event-registration/event-registration.component';
+import EventList from './pages/event-list/event-list.component';
 import Header from './components/header/header.component';
 import signInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import EventRegistration from './pages/event-registration/event-registration.component';
 
 class App extends React.Component {
     constructor(props) {
@@ -47,8 +48,9 @@ class App extends React.Component {
                 <Header currentUser={this.state.currentUser} />
                 <Switch>
                     <Route exact={true} path='/' component={HomePage} />
-                    <Route path='/eventregistration' component={EventRegistration} />
+                    <Route path='/eventlist' component={EventList} />
                     <Route path='/signin' component={signInAndSignUpPage} />
+                    <Route path='/eventregistration' component={EventRegistration} />
                 </Switch>
             </div>
 

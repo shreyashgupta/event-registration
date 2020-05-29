@@ -2,13 +2,13 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
+// import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
 import Typography from '@material-ui/core/Typography';
-import './Eventcard.css';
+import './event-card.styles.css';
 
 
 const useStyles = makeStyles({
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Eventcard=()=>{
+const EventCard=()=>{
 const classes = useStyles();
 return(
  <Card className={classes.root}>
@@ -58,4 +58,4 @@ return(
 	);
 }
 
-export default Eventcard;
+export default EventCard;
