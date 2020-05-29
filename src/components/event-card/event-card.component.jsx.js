@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
 import Typography from '@material-ui/core/Typography';
 import './event-card.styles.css';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles({
@@ -20,10 +21,10 @@ const useStyles = makeStyles({
   },
 });
 
-const EventCard=()=>{
-const classes = useStyles();
-return(
- <Card className={classes.root}>
+const EventCard = () => {
+  const classes = useStyles();
+  return (
+    <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -36,9 +37,9 @@ return(
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             orem Ipsum is simply dummy text of the printing and typesetting industry.
-             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type 
-              specimen book
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type
+            specimen book
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -46,16 +47,19 @@ return(
         <Button size="small" color="primary">
           Learn More
         </Button>
-       <div className="tags" >
-       <p>Tags:</p> 
-      	<Chip variant="outlined"  label="cloud computing"/>
-      	<Chip variant="outlined"  label="deep learning"/>
-      	<Chip variant="outlined"  label="web dev"/>
-      	</div>
-      	</div>
+        <center>
+          <Link to='/eventregistration'>To register click here...</Link>
+        </center>
+        <div className="tags" >
+          <p>Tags:</p>
+          <Chip variant="outlined" label="cloud computing" />
+          <Chip variant="outlined" label="deep learning" />
+          <Chip variant="outlined" label="web dev" />
+        </div>
+      </div>
 
     </Card>
-	);
+  );
 }
 
 export default EventCard;

@@ -13,11 +13,35 @@ const firebaseConfig = {
     measurementId: "G-FXEXX24W2T"
   };
 
+  export const addEventDetailsForUser = async ( userAuth, eventId, eventName, phoneNumber, members ) => {
+
+    const userRef = firestore.collection('users').doc(`${userAuth.uid}`);
+    await userRef.update({phoneNumber});
+    
+    //members is an array of entered members
+    const eventDetailsList = firestore.collection('users').doc(`${userAuth.uid}`).collection('eventDetails').doc(`${eventId}`);
+
+    await eventDetailsList.set({
+      name: eventName,
+      id: eventId,
+      members: members
+    })
+
+  }
+
   export const createUserProfileDocument = async (userAuth, additionalData) => {
     
     if(!userAuth) return;
 
-    const userRef = firestore.doc(`users/${userAuth.uid}`);
+    // const userRef = firestore.doc(`users/${userAuth.uid}`);
+    const userRef = firestore.collection('users').doc(`${userAuth.uid}`);
+
+ //const eventDetailsList = firestore.collection('users').doc(`${userAuth.uid}`).collection('eventDetails').doc('2910').update({name: "Event-10"});
+    // const eventDetailsListSnapShot = await eventDetailsList.get();
+
+
+    // console.log(eventDetailsListSnapShot);
+    // console.log(userRef);
 
     const snapShot = await userRef.get(); 
     // console.log(snapShot);
@@ -25,7 +49,7 @@ const firebaseConfig = {
     if(!snapShot.exists) {
       const { displayName, email } = userAuth;
       const createdAt = new Date();
-
+      
       try {
         await userRef.set({
           displayName,
