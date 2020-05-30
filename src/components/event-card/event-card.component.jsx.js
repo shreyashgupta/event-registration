@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
 import Typography from '@material-ui/core/Typography';
 import './event-card.styles.css';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles({
@@ -20,10 +21,10 @@ const useStyles = makeStyles({
   },
 });
 
-const EventCard=()=>{
-const classes = useStyles();
-return(
- <Card className={classes.root}>
+const EventCard = () => {
+  const classes = useStyles();
+  return (
+    <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -51,9 +52,8 @@ return(
       	<Chip  variant="outlined"  label="web dev"/>
       	</div>
       	</div>
-
     </Card>
-	);
+  );
 }
 
 export default EventCard;

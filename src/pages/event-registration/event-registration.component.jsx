@@ -1,87 +1,14 @@
-import React, { useState } from 'react';
-import { auth } from '../../firebase/firebase.utils';
-import FormInput from '../../components/form-input/form-input.component';
-import CustomButton from '../../components/custom-button/custom-button.component';
-
 //props should comprise of event-name, event-id, event-type(indivisual or team).
 //If team event max. size of team is also provided as prop
 //This props should be passed from EventCard Component
 
-// const EventRegistration = (props) => {
+import React from 'react';
+import { auth, addEventDetailsForUser } from '../../firebase/firebase.utils';
+import FormInput from '../../components/form-input/form-input.component';
+import CustomButton from '../../components/custom-button/custom-button.component';
 
-//     const [isLoggedIn, setIsLoggedIn] = useState(null);
-//     const [userAuthState, setUserAuthState] = useState(null);
-//     const [selectedTeamSize, setSelectedTeamSize] = useState(1);
+import './event-registration.styles.scss';
 
-//     const fun = () => {
-//         auth.onAuthStateChanged(userAuth => {
-//             userAuth ? setIsLoggedIn(true) : setIsLoggedIn(false);
-
-//             setUserAuthState(userAuth);
-
-//         });
-//     }
-
-//     fun();
-
-//     const handleChange = async (event) => {
-//         const { name, value } = event.target;
-//         if (name.localeCompare("selectedTeamSize") === 0) await setSelectedTeamSize(value);
-
-
-//     }
-
-//     // if(selectedTeamSize) console.log(selectedTeamSize);
-
-//     const handleSubmit = (event) => {
-
-//     }
-
-//     let maxTeamSize = 5;
-//     const arrayMaxTeamSize = [];
-//     for (let i = 1; i <= maxTeamSize; i++) arrayMaxTeamSize[i] = i;
-
-
-//     const arraySelectedTeamSize = [];
-//     for (let i = 1; i <= selectedTeamSize; i++) arraySelectedTeamSize[i] = i;
-
-
-
-//     return (
-//         isLoggedIn ?
-//             <div className='event-registrtion'>
-//                 <form onSubmit={handleSubmit}>
-//                     <label>Choose number of members: </label>
-//                     {
-//                         selectedTeamSize ? console.log(selectedTeamSize) : console.log(null)
-//                     }
-//                     <select id='teammates' name='selectedTeamSize' onChange={handleChange}>
-//                         {
-//                             arrayMaxTeamSize.map(item => (
-//                                 <option key={item} value={item}>{item}</option>
-//                             ))
-//                         }
-//                         {
-//                             arraySelectedTeamSize.map(item => {
-//                                 <FormInput
-//                                     key={item}
-//                                     name='membername'
-//                                     type='text'
-//                                     handleChange={this.handleChange}
-//                                     value={this.state.email}
-//                                     label='email'
-//                                     required
-//                                     />
-//                         })
-//                         }
-//                     </select>
-//                 </form>
-//             </div>
-//             :
-//             <h2>Please signin first</h2>
-//     )
-
-// }
 
 class EventRegistration extends React.Component {
     constructor(props) {
@@ -96,18 +23,42 @@ class EventRegistration extends React.Component {
             member2: '',
             member3: '',
             member4: '',
+            phoneNumber: '',
+            eventName: '',
+            eventId: ''
         }
     }
 
     handleChange = (event) => {
         const { name, value } = event.target;
 
-        
-
-        this.setState({ [name]: value }, () => console.log(this.state));
+        this.setState({ [name]: value });
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
+
+        const { eventId, eventName, phoneNumber, member1, member2, member3, member4 } = this.state;
+
+        let members = [];
+        if (member1.length) members[0] = member1;
+        if (member2.length) members[1] = member2;
+        if (member3.length) members[2] = member3;
+        if (member4.length) members[3] = member4;
+
+        auth.onAuthStateChanged(async userAuth => {
+            if(userAuth)
+            await addEventDetailsForUser(userAuth, eventId, eventName, phoneNumber, members);
+        })
+
+        console.log("Event Details added successfully for the user");
+
+        await this.setState({
+            eventId: '',
+            eventName: '',
+            member2: '',
+            member3: '',
+            member4: ''
+        });
 
     }
 
@@ -118,7 +69,7 @@ class EventRegistration extends React.Component {
     }
 
     render() {
-        const { maxTeamSize, selectedTeamSize, isLoggedIn } = this.state;
+        const { maxTeamSize, selectedTeamSize, isLoggedIn, phoneNumber, eventName, eventId } = this.state;
         const arrayMaxTeamSize = [];
         for (let i = 1; i <= maxTeamSize; i++) arrayMaxTeamSize[i] = i;
         const arraySelectedTeamSize = [];
@@ -126,18 +77,21 @@ class EventRegistration extends React.Component {
 
         return (
             isLoggedIn ?
-                <div className='event-registrtion'>
+                <div className='event-registration'>
+                    <h2> Register for the event</h2>
+                    <span>We have got some of the wondeful events</span><br />
+                    <div className='drop-down-menu'>
+                        <label><big>Choose number of tickets: </big></label>
+                        <select id='teammates' name='selectedTeamSize' onChange={this.handleChange}>
+                            {
+                                arrayMaxTeamSize.map(item => (
+                                    <option key={item} value={item}>{item}</option>
+                                ))
+                            }
+                        </select>
+                    </div>
 
-                    <label>Choose number of members: </label>
-                    <select id='teammates' name='selectedTeamSize' onChange={this.handleChange}>
-                        {
-                            arrayMaxTeamSize.map(item => (
-                                <option key={item} value={item}>{item}</option>
-                            ))
-                        }
-                    </select>
-
-                    <form onSubmit={this.handleSubmit}>
+                    <form className='form-input' onSubmit={this.handleSubmit}>
                         {
                             arraySelectedTeamSize.map(item => (
                                 <FormInput
@@ -147,14 +101,39 @@ class EventRegistration extends React.Component {
                                     handleChange={this.handleChange}
                                     defaultValue=''
                                     label={`member${item}`}
+                                    required
                                 />
                             ))
                         }
+                        <FormInput
+                            name='phoneNumber'
+                            type='text'
+                            handleChange={this.handleChange}
+                            value={phoneNumber}
+                            label='phone number'
+                            required
+                        />
+                        <FormInput
+                            name='eventName'
+                            type='text'
+                            handleChange={this.handleChange}
+                            value={eventName}
+                            label='event name'
+                            required
+                        />
+                        <FormInput
+                            name='eventId'
+                            type='text'
+                            handleChange={this.handleChange}
+                            value={eventId}
+                            label='event id'
+                            required
+                        />
                     </form>
-
+                    <CustomButton type='submit' onClick={this.handleSubmit}>BUY TICKET(s)</CustomButton>
                 </div>
                 :
-                <h2>Please signin first</h2>
+                <h2>Please signin first before registering</h2>
         )
     }
 
