@@ -8,7 +8,6 @@ header
 {
     display: flex;
     flex-wrap: wrap;
-    
     justify-content:space-around;
 }
 .event-list>div

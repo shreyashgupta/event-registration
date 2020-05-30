@@ -4,7 +4,7 @@ import EventCard from '../../components/event-card/event-card.component.jsx.js';
 
 const EventList = () => {
     return (
-        <div className="event-registration">
+        <div>
             <header>Trending Events</header>
             <div className='event-list'>
                 <div><EventCard /></div>
