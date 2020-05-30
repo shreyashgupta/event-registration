@@ -101,6 +101,7 @@ class EventRegistration extends React.Component {
                                     handleChange={this.handleChange}
                                     defaultValue=''
                                     label={`member${item}`}
+                                    required
                                 />
                             ))
                         }
@@ -110,6 +111,7 @@ class EventRegistration extends React.Component {
                             handleChange={this.handleChange}
                             value={phoneNumber}
                             label='phone number'
+                            required
                         />
                         <FormInput
                             name='eventName'
@@ -117,6 +119,7 @@ class EventRegistration extends React.Component {
                             handleChange={this.handleChange}
                             value={eventName}
                             label='event name'
+                            required
                         />
                         <FormInput
                             name='eventId'
@@ -124,6 +127,7 @@ class EventRegistration extends React.Component {
                             handleChange={this.handleChange}
                             value={eventId}
                             label='event id'
+                            required
                         />
                     </form>
                     <CustomButton type='submit' onClick={this.handleSubmit}>BUY TICKET(s)</CustomButton>
