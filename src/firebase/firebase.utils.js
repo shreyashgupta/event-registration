@@ -23,7 +23,7 @@ export const addEventDetailsForUser = async (userAuth, eventId, eventName, phone
     await userRef.update({ phoneNumber });
 
     //members is an array of entered members
-    const eventDetailsList = firestore.collection('users').doc(`${userAuth.uid}`).collection('eventDetails').doc(`${useAuth.uid}`);
+    const eventDetailsList = firestore.collection('users').doc(`${userAuth.uid}`).collection('eventDetails').doc(`${eventId}`);
 
     await eventDetailsList.set({
       name: eventName,
