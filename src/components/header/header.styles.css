@@ -1,0 +1,45 @@
+.header
+{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-container
+{
+    margin: 20px;
+}
+.options
+{
+   flex-grow: 3;
+   display: flex;
+   justify-content: flex-end;
+/*    display:flex;
+    justify-content: space-between;*/
+
+}
+.option
+{
+    margin:20px;
+}
+.option2
+{
+    margin:20px;
+    color:purple;
+    font-weight: bold;
+}
+/*.option:after {
+  display:block;
+  content: '';
+  border-bottom: solid 2px black;  
+  transform: scaleX(0);  
+  transition: transform 250ms ease-in-out;
+}
+.option:hover:after { transform: scaleX(1); }*/
+
+.active {
+      border-bottom: solid 2px black;  
+}
+.active:hover
+{
+    transform:none;
+}
