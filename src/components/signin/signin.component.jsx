@@ -1,5 +1,5 @@
 import React from 'react';
-import './signin.styles.scss';
+import './signin.styles.css';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
