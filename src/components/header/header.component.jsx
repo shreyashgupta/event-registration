@@ -1,6 +1,7 @@
 import React from 'react';
-import './header.styles.scss';
-import { Link } from 'react-router-dom';
+import './header.styles.css';
+import { Link, NavLink } from 'react-router-dom';
+
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { auth } from '../../firebase/firebase.utils';
 
@@ -14,18 +15,18 @@ const Header = ({ currentUser }) => (
             <div className="options">
                 {
                     currentUser ?
-                <div className='option'>Hi! {currentUser.displayName}</div>
+                <div className='option2'>Hi! {currentUser.email}</div>
                 :null
                 }
-                <Link to className="option" to="/eventlist">EVENT-LIST</Link>
-                <Link to className="option" to="/eventregistration">EVENT-REGISTRATION</Link>
+                <NavLink to className="option" to="/eventlist">HOME</NavLink>
+                <NavLink to className="option" to="/events">EVENTS</NavLink>
 
-                {/* <Link to className="option" to="/signin">SIGN IN</Link> */}
+                {/* <NavLink to className="option" to="/signin">SIGN IN</NavLink> */}
                 {
                     currentUser ? 
                     <div className='option' onClick={ () => auth.signOut()}>SIGN OUT</div>
                     :
-                    <Link className='option' to='/signin'>SIGN IN</Link>
+                    <NavLink className='option' to='/signin'>SIGN IN</NavLink>
                 }
             </div>
         </div>

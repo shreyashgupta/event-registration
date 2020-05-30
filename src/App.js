@@ -7,6 +7,7 @@ import Header from './components/header/header.component';
 import signInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import EventRegistration from './pages/event-registration/event-registration.component';
+import Events from './pages/Events/events.component';
 
 class App extends React.Component {
     constructor(props) {
@@ -51,6 +52,7 @@ class App extends React.Component {
                     <Route path='/eventlist' component={EventList} />
                     <Route path='/signin' component={signInAndSignUpPage} />
                     <Route path='/eventregistration' component={EventRegistration} />
+                    <Route path='/events' component={Events} />
                 </Switch>
             </div>
 

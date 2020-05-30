@@ -1,0 +1,20 @@
+.search
+{
+	color:black;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-content: center;
+
+}
+.filter
+{
+	width:30%;
+	background-color: rgba(255,0,0,.5);
+}
+.filtered-list
+{
+	width:70%;
+	text-align: center;
+	background-color: rgba(0,0,255,.5);
+}
