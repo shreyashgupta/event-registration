@@ -50,10 +50,10 @@ class App extends React.Component {
                 <Header currentUser={this.state.currentUser} />
                 <Switch>
                     <Route exact={true} path='/' component={HomePage} />
-                    <Route path='/eventlist' component={EventList} />
-                    <Route path='/signin' component={signInAndSignUpPage} />
+                    {/* <Route path='/eventlist' component={EventList} />
+                    <Route path='/signin' component={signInAndSignUpPage} /> */}
                     {/* <Route path='/eventregistration' component={EventRegistration} /> */}
-                    <Route path='/events' component={Events} />
+                    {/* <Route path='/events' component={Events} /> */}
                     <Route path='/register' component={Register} />
                 </Switch>
             </div>
