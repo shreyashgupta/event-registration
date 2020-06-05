@@ -10,6 +10,7 @@ import EventRegistration from './pages/event-registration/event-registration.com
 import Events from './pages/Events/events.component';
 import Register from './components/register/register.component';
 import AdminLogin from './pages/admin-login/admin-login.component';
+import Registrations from'./pages/Registrations/registrations';
 
 class App extends React.Component {
     constructor(props) {
@@ -50,13 +51,14 @@ class App extends React.Component {
             <div className="app-js" >
                 <Header currentUser={this.state.currentUser} />
                 <Switch>
-                    <Route exact={true} path='/' component={HomePage} />
+                    <Route exact path='/' component={HomePage} />
                     {/* <Route path='/eventlist' component={EventList} /> */}
                     <Route path='/signin' component={signInAndSignUpPage} />
                     {/* <Route path='/eventregistration' component={EventRegistration} /> */}
                     {/* <Route path='/events' component={Events} /> */}
-                    <Route path='/register' component={Register} />
+                    <Route path='/register' exact component={Register} />
                     <Route path='/admin' component={AdminLogin} />
+                    <Route path='/registrations' component={Registrations} />
                 </Switch>
             </div>
 

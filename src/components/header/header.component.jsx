@@ -13,22 +13,16 @@ const Header = ({ currentUser }) => (
                 <Logo className="logo" />
             </Link>
             <div className="options">
-                {/* {
-                    currentUser ?
-                <div className='option2'>Hi! {currentUser.displayName}</div>
-                :null
-                } */}
-                <NavLink to className="option" to="/register">REGISTER</NavLink>
-                {/* <NavLink to className="option" to="/admin">ADMIN</NavLink> */}
-
-                {/* <NavLink to className="option" to="/events">EVENTS</NavLink> */}
-
-                {/* <NavLink to className="option" to="/signin">SIGN IN</NavLink> */}
+                <NavLink to className="option"exact to="/">Home</NavLink>
                 {
-                    currentUser ? 
-                    <div className="option" onClick={ () => auth.signOut()}>SIGN OUT</div>
+                    currentUser ? <div className="option2">
+                    <NavLink to className="option" to="/Registrations">View Registrations</NavLink>
+                    <div className="option" onClick={ () => auth.signOut()}>SIGN OUT</div></div>
                     :
-                    <NavLink className="option" to='/admin'>ADMIN</NavLink>
+                    <div className="option2">
+                    <NavLink to className="option" to="/register">Register</NavLink>
+                    <NavLink to className="option admin" to='/admin'>Admin</NavLink>
+                    </div>
                 }
             </div>
         </div>

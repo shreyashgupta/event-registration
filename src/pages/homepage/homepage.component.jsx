@@ -1,13 +1,28 @@
 import React from 'react';
 import './homepage.styles.css';
 import { Link } from 'react-router-dom';
-
+import Hometop from '../../components/hometop/hometop';
+import EventCard from '../../components/event-card/event-card.component.jsx.js';
 const HomePage = () =>{
     return(
-        <center>
-            <h1>WELCOME TO RVCE EVENT MANAGER APPLICATION</h1>
-            <Link to='/register'>Click here to register...</Link>
-        </center>
+    	<div>
+    	<Hometop/>
+    	<header>Some Stuff</header>
+            <div className='artists'>
+                <div><EventCard /></div>
+                <div><EventCard /></div>
+                <div><EventCard /></div>
+                <div><EventCard /></div>
+                <div><EventCard /></div>
+                <div><EventCard /></div>
+            </div>
+            <header>Some More Stuff</header>
+            <div className="memories">
+                <div><EventCard /></div>
+                <div><EventCard /></div>
+                <div><EventCard /></div>
+            </div>
+        </div>
     )
 }
 
