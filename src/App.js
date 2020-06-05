@@ -10,7 +10,7 @@ import EventRegistration from './pages/event-registration/event-registration.com
 import Events from './pages/Events/events.component';
 import Register from './components/register/register.component';
 import AdminLogin from './pages/admin-login/admin-login.component';
-import Registrations from'./pages/Registrations/registrations';
+import Registrations from'./pages/registrations/registrations.component';
 
 class App extends React.Component {
     constructor(props) {
