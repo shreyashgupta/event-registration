@@ -19,15 +19,17 @@ const Header = ({ currentUser }) => (
                 :null
                 } */}
                 <NavLink to className="option" to="/register">REGISTER</NavLink>
+                {/* <NavLink to className="option" to="/admin">ADMIN</NavLink> */}
+
                 {/* <NavLink to className="option" to="/events">EVENTS</NavLink> */}
 
                 {/* <NavLink to className="option" to="/signin">SIGN IN</NavLink> */}
-                {/* {
+                {
                     currentUser ? 
                     <div className="option" onClick={ () => auth.signOut()}>SIGN OUT</div>
                     :
-                    <NavLink className="option" to='/signin'>SIGN IN</NavLink>
-                } */}
+                    <NavLink className="option" to='/admin'>ADMIN</NavLink>
+                }
             </div>
         </div>
     )
