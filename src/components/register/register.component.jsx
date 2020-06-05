@@ -1,5 +1,5 @@
 import React from 'react';
-import './register.styles.scss';
+import './register.styles.css';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 import { storage } from '../../firebase/firebase.utils';

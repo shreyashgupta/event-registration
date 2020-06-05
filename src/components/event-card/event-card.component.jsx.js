@@ -14,10 +14,10 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 500,
+    maxWidth: 350,
   },
   media: {
-    height: 300,
+    height: 200,
   },
 });
 
