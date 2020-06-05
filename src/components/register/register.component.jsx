@@ -23,26 +23,43 @@ class Register extends React.Component {
 
     handleSubmit = async (event) => {
         const { fullName, mobileNumber, email, registrationType, photoIdUrl, numberOfTickets, file } = this.state;
-        const createdAt = new Date();
-        console.log(this.state);
-        const userRef = firestore.collection('registeredUsers').doc(`${fullName}`);
-
-        try {
-            await userRef.set({
-                fullName,
-                mobileNumber,
-                email,
-                photoIdUrl,
-                registrationType,
-                numberOfTickets,
-                createdAt
-            })
-        } catch (error) {
-            console.log("Error in sending the data to firebase");
+        if(numberOfTickets<=0){
+            alert("Enter proper value for numberOfTickets");
+            console.log(this.state);
+        }
+        else {
+            if (!file) {
+                alert("Upload image");
+            }
+            else if (!(mobileNumber.length===10 && fullName.length && email.length && photoIdUrl.length && numberOfTickets > 0)) {
+                alert("Enter all the details properly");
+            }
+            else {
+                const createdAt = new Date();
+                console.log(this.state);
+                const userRef = firestore.collection('registeredUsers').doc(`${fullName}`);
+    
+                try {
+                    await userRef.set({
+                        fullName,
+                        mobileNumber,
+                        email,
+                        photoIdUrl,
+                        registrationType,
+                        numberOfTickets,
+                        createdAt
+                    })
+                } catch (error) {
+                    console.log("Error in sending the data to firebase");
+                }
+    
+                alert("Registration successful");
+            }
+    
         }
 
-        alert("Registration successful");
-
+        
+        
     }
 
     handleFileUpload = (event) => {
@@ -50,7 +67,7 @@ class Register extends React.Component {
         if (!file) {
             alert("Upload image and then click on upload button");
         } else {
-            
+
             const uploadTask = storage.ref(`userPhotoIds/${file.name}`).put(file);
 
             uploadTask.on('state_changed',
@@ -81,7 +98,11 @@ class Register extends React.Component {
     handleChange = (event) => {
         const { name, value } = event.target;
 
-        this.setState({ [name]: value }, () => console.log(this.state));
+        this.setState({ [name]: value });
+        if (this.state.registrationType === 'self' || this.state.numberOfTickets <= 0) {
+            this.setState({ numberOfTickets: 1 });
+        }
+
     }
 
     render() {
@@ -131,7 +152,7 @@ class Register extends React.Component {
                             label='numberOfTickets'
                             required
                         />
-                        <CustomButton type='submit'> Register </CustomButton>
+                        <CustomButton type='submit' > Register </CustomButton>
 
                     </form>
                 </div>
