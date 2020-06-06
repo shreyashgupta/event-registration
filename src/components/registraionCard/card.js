@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import './card.css'
 const useStyles = makeStyles({
   root: {
-    width: 250,
+    width: 280,
   },
   media: {
     height: 200,
@@ -25,7 +25,7 @@ const RegistrationCard = ({imageUrl,name,ph,emailId,numTickets,time,date}) => {
         <CardMedia
           className={classes.media}
           image={imageUrl}
-          title="Contemplative Reptile"
+          title={name}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" className="name">
