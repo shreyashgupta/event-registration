@@ -5,39 +5,38 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 // import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
 import Typography from '@material-ui/core/Typography';
-import './event-card.styles.css';
-import { Link } from 'react-router-dom';
-
-
+import './card.css'
 const useStyles = makeStyles({
   root: {
-    maxWidth: 350,
+    width: 280,
   },
   media: {
     height: 200,
   },
 });
 
-const EventCard = () => {
+const RegistrationCard = ({imageUrl,name,ph,emailId,numTickets,time,date}) => {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="https://source.unsplash.com/random"
-          title="Contemplative Reptile"
+          image={imageUrl}
+          title={name}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Event xyz
+          <Typography gutterBottom variant="h5" component="h2" className="name">
+            {name}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            orem Ipsum is simply dummy text of the printing and typesetting industry.
-             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+          <Typography variant="body2" color="black" component="p">
+          <div className="item"><p>Phone Number: </p><h4>{ph}</h4></div>
+          <div className="item"><p>Email: </p><h4>{emailId}</h4></div>
+          <div className="item"><p>Num Tickets: </p><h4>{numTickets}</h4></div>
+          <div className="item"><p>Time: </p><h4>{time}</h4></div>
+          <div className="item"><p>Date: </p><h4>{date}</h4></div>
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -45,4 +44,4 @@ const EventCard = () => {
   );
 }
 
-export default EventCard;
+export default RegistrationCard;
