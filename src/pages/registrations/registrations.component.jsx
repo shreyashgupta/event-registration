@@ -36,7 +36,7 @@ const Registrations = () => {
                                 <Typography component={'span'}>
                                     Photo ID
                                     <center>
-                                        <img src={docData.photoIdUrl} className='photoId' alt={`${docData.fullName}'s photo ID`} />
+                                        <img src={docData.photoIdUrl} className='photoId' alt={`${docData.fullName}`} />
                                     </center>
                                 </Typography>
                                 <Typography>
