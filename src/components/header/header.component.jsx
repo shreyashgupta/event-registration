@@ -16,7 +16,7 @@ const Header = ({ currentUser }) => (
                 <NavLink to className="option"exact to="/">Home</NavLink>
                 {
                     currentUser ? <div className="option2">
-                    <NavLink to className="option" to="/Registrations">View Registrations</NavLink>
+                    <NavLink to className="option" to="/registrations">View Registrations</NavLink>
                     <div className="option" onClick={ () => auth.signOut()}>SIGN OUT</div></div>
                     :
                     <div className="option2">
