@@ -2,7 +2,7 @@ import React from 'react';
 import './homepage.styles.css';
 import { Link } from 'react-router-dom';
 import Hometop from '../../components/hometop/hometop';
-import EventCard from '../../components/event-card/event-card.component.jsx.js';
+import EventCard from '../../components/event-card/event-card.component'
 const HomePage = () =>{
     return(
     	<div>

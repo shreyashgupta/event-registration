@@ -1,7 +1,7 @@
 import React from 'react';
 import './register.styles.css';
-import FormInput from '../form-input/form-input.component';
-import CustomButton from '../custom-button/custom-button.component';
+import FormInput from '../../components/form-input/form-input.component';
+import CustomButton from '../../components/custom-button/custom-button.component';
 import { storage } from '../../firebase/firebase.utils';
 import { firestore } from '../../firebase/firebase.utils';
 
@@ -32,11 +32,12 @@ class Register extends React.Component {
                 alert("Upload image");
             }
             else if (!(mobileNumber.length===10 && fullName.length && email.length && photoIdUrl.length && numberOfTickets > 0)) {
-                alert("Enter all the details properly");
+                alert("Enter all the details properly. Check Mobile Number");
             }
             else {
                 const createdAt = new Date();
-                console.log(this.state);
+                // console.log(createdAt);
+                // console.log(this.state);
                 const userRef = firestore.collection('registeredUsers').doc(`${fullName}`);
     
                 try {
@@ -58,8 +59,6 @@ class Register extends React.Component {
     
         }
 
-        
-        
     }
 
     handleFileUpload = (event) => {

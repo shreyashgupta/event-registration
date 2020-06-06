@@ -1,6 +1,6 @@
 import React from 'react';
 import './event-list.styles.css';
-import EventCard from '../../components/event-card/event-card.component.jsx.js';
+import EventCard from '../../components/event-card/event-card.component';
 
 const EventList = () => {
     return (
