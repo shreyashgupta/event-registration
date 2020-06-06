@@ -33,10 +33,10 @@ const Registrations = () => {
                                 <Typography>
                                     Email ID: {docData.email}
                                 </Typography>
-                                <Typography>
+                                <Typography component={'span'}>
                                     Photo ID
                                     <center>
-                                        <img src={docData.photoIdUrl} className='photoId' alt='image' />
+                                        <img src={docData.photoIdUrl} className='photoId' alt={`${docData.fullName}'s photo ID`} />
                                     </center>
                                 </Typography>
                                 <Typography>
