@@ -1,0 +1,15 @@
+.item
+{
+	display: flex;
+	flex-direction: row;
+	wrap:nowrap;
+	/*margin:0px 20px 0px 20px;*/
+}
+.item>*
+{
+	align-self: center;
+}
+.item
+{
+	height: 20px;
+}
