@@ -24,9 +24,12 @@ class Register extends React.Component {
     handleSubmit = async (event) => {
         const { fullName, mobileNumber, email, photoIdUrl, registrationType, numberOfTickets, file } = this.state;
         console.log(this.state);
-        if (!file) {
-            alert("Upload image first");
-            return;
+        if(!file){
+            alert("Choose file and upload");
+        }
+        if (photoIdUrl.length===0) {
+            alert("Click on upload image button after choosing");
+            
         }
         else if (numberOfTickets <= 0) {
             alert("Enter positive value for number of tickets");
