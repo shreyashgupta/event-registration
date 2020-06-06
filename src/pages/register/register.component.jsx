@@ -22,19 +22,21 @@ class Register extends React.Component {
     }
 
     handleSubmit = async (event) => {
+
         const { fullName, mobileNumber, email, registrationType, photoIdUrl, numberOfTickets, file } = this.state;
         if(numberOfTickets<=0){
             alert("Enter proper value for numberOfTickets");
-            console.log(this.state);
         }
         else {
             if (!file) {
                 alert("Upload image");
             }
-            else if (!(mobileNumber.length===10 && fullName.length && email.length && photoIdUrl.length && numberOfTickets > 0)) {
+            else if (!(mobileNumber.length==10 && fullName.length && email.length && (numberOfTickets > 0))) {          
+                console.log(mobileNumber.length,fullName.length, email.length,numberOfTickets )
                 alert("Enter all the details properly. Check Mobile Number");
             }
             else {
+                console.log(this.state);
                 const createdAt = new Date();
                 // console.log(createdAt);
                 // console.log(this.state);
@@ -50,6 +52,8 @@ class Register extends React.Component {
                         numberOfTickets,
                         createdAt
                     })
+                    console.log(this.state);
+
                 } catch (error) {
                     console.log("Error in sending the data to firebase");
                 }

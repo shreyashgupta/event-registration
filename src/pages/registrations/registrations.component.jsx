@@ -1,5 +1,5 @@
 import React from 'react';
-import './registrations.styles.scss';
+import './registrations.styles.css';
 import { firestore } from '../../firebase/firebase.utils';
 import { Grid, CardContent, Typography } from '@material-ui/core';
 import RegistrationCard from '../../components/registraionCard/card';
@@ -19,7 +19,7 @@ const Registrations = () => {
 
     return (
         <div className='registrations'>
-            <center><h2>Total Number of Registrations: {docsArrayData.length}</h2></center>
+            <center><h2 className="tr">Total Number of Registrations: {docsArrayData.length}</h2></center>
             <div className='doc-data'>
                 {
                     docsArrayData.map((docData, i) => (

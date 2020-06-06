@@ -1,0 +1,15 @@
+.tr
+{
+    margin-top:50px;
+}
+.registrations .doc-data
+{
+    display:flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.registrations .doc-data>*
+{
+    margin:20px;
+}
