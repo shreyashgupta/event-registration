@@ -1,9 +1,10 @@
-import React from 'react';
-import './registrations.styles.scss';
-import { firestore } from '../../firebase/firebase.utils';
-import { Grid, CardContent, Typography } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import './registrations.styles.css';
+import { firestore, auth } from '../../firebase/firebase.utils';
+import RegistrationCard from '../../components/registraion-card/registration-card.component';
 let docsArrayData = [], docsArrayDataTimeStamp = [];
 const Registrations = () => {
+
     const functionFirebase = async () => {
         const snapShot = await firestore.collection('registeredUsers').get();
         const docsArray = snapShot.docs;
@@ -18,41 +19,20 @@ const Registrations = () => {
 
     return (
         <div className='registrations'>
-            <center><h2>Total Number of Registrations: {docsArrayData.length}</h2></center>
+            <center><h2 className="tr">Total Number of Registrations: {docsArrayData.length}</h2></center>
             <div className='doc-data'>
                 {
                     docsArrayData.map((docData, i) => (
-                        <Grid key={i} item className='grid-item'>
-                            <CardContent>
-                                <Typography>
-                                    Full Name: {docData.fullName}
-                                </Typography>
-                                <Typography>
-                                    Mobile Number: {docData.mobileNumber}
-                                </Typography>
-                                <Typography>
-                                    Email ID: {docData.email}
-                                </Typography>
-                                <Typography component={'span'}>
-                                    Photo ID
-                                    <center>
-                                        <img src={docData.photoIdUrl} className='photoId' alt={`${docData.fullName}`} />
-                                    </center>
-                                </Typography>
-                                <Typography>
-                                    Registration Type: {docData.registrationType}
-                                </Typography>
-                                <Typography>
-                                    Number of Tickets: {docData.numberOfTickets}
-                                </Typography>
-                                <Typography>
-                                    Date: {docsArrayDataTimeStamp[i].toLocaleDateString()}
-                                </Typography>
-                                <Typography>
-                                    Time: {docsArrayDataTimeStamp[i].toLocaleTimeString()}
-                                </Typography>
-                            </CardContent>
-                        </Grid>
+                        <RegistrationCard
+                            key={i}
+                            imageUrl={docData.photoIdUrl}
+                            name={docData.fullName}
+                            ph={docData.mobileNumber}
+                            emailId={docData.email}
+                            numTickets={docData.numberOfTickets}
+                            time={docsArrayDataTimeStamp[i].toLocaleTimeString()}
+                            date={docsArrayDataTimeStamp[i].toLocaleDateString()}
+                        />
                     ))
                 }
             </div>

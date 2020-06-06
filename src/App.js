@@ -10,7 +10,7 @@ import EventRegistration from './pages/event-registration/event-registration.com
 import Events from './pages/Events/events.component';
 import Register from './pages/register/register.component';
 import AdminLogin from './pages/admin-login/admin-login.component';
-import Registrations from'./pages/registrations/registrations.component';
+import Registrations from './pages/registrations/registrations.component';
 
 class App extends React.Component {
     constructor(props) {
@@ -47,9 +47,10 @@ class App extends React.Component {
     }
 
     render() {
+        
         return (
             <div className="app-js" >
-                <Header currentUser={this.state.currentUser} />
+                <Header />
                 <Switch>
                     <Route exact path='/' component={HomePage} />
                     {/* <Route path='/eventlist' component={EventList} /> */}

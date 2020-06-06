@@ -40,6 +40,7 @@ class Register extends React.Component {
             const createdAt = new Date();
             const registeredUser = { fullName, mobileNumber, email, photoIdUrl, registrationType, numberOfTickets, createdAt };
 
+            
             try {
                 await userRef.set(registeredUser);
                 alert("Registration Successful");
