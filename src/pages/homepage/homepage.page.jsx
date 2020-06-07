@@ -1,10 +1,20 @@
 import React from 'react';
 import './homepage.styles.css';
-import { Link } from 'react-router-dom';
-import Hometop from '../../components/hometop/hometop';
+import Hometop from '../../components/hometop/hometop.component';
 import EventCard from '../../components/event-card/event-card.component'
 import ImageCard from '../../components/imageCard/event-card.component'
 const HomePage = () =>{
+    const arr=[["https://img.theweek.in/content/dam/week/leisure/lifestyle/images/2018/4/8/sadhguru-jaggi.jpg",
+                " Sadhguru",
+                "Sadguru jaggi vasudev is a mystic ,philanthropist and guru."],
+                ["https://www.yogaiya.in/wp-content/uploads/2020/03/Kamlesh-D.-Patel.jpg",
+                "Kamlesh D.Patel",
+                "Kamlesh D.Patel is the fourth spiritual Guide in the Sahaj Marg system of Raj Yoga meditation."],
+                ["https://patch.com/img/cdn20/users/22943115/20170621/120441/styles/raw/public/article_images/sister_shivani_1-1498060899-8434.jpg",
+                "Shivani Verma",
+                "Shivani Verma is a Brahma Kumaris teacher at the Brahma  Kumaris World Spiritual University."
+                ]
+                ];
     return(
     	<div>
     	<Hometop/>
@@ -21,14 +31,14 @@ const HomePage = () =>{
             Details for usage will be provided on registration</p></div>
             <div className="ed">
                 <p>Date: <b>2nd-July-2020 to 4th-July-2020</b></p>
-                <p>Timinigs:<b>7 AM - 9 AM</b></p>
+                <p>Timinigs: <b>7 AM - 9 AM</b></p>
             </div>
             <div className='gurus'>
                 <h2>Who will be with us ?</h2>
                 <div className="guru">
-                <div><EventCard /></div>
-                <div><EventCard /></div>
-                <div><EventCard /></div>
+                <div><EventCard i={arr[0][0]} name={arr[0][1]} info={arr[0][2]} /></div>
+                <div><EventCard i={arr[1][0]} name={arr[1][1]} info={arr[1][2]} /></div>
+                <div><EventCard i={arr[2][0]} name={arr[2][1]} info={arr[2][2]} /></div>
                 </div>
             </div>
             <header>Why Meditate?</header>
