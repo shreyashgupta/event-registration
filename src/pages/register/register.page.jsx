@@ -19,8 +19,8 @@ class Register extends React.Component {
         }
     }
 
-    hashFunction = (fullName,mobileNumber,email,numberOfTickets) => {
-        const hashValue = Math.floor((fullName.length+numberOfTickets) *101* (mobileNumber.length -4) / (email.length +23));
+    hashFunction = (fullName, mobileNumber, email, numberOfTickets) => {
+        const hashValue = Math.floor((fullName.length + numberOfTickets) * 101 * (mobileNumber.length - 4) / (email.length + 23));
         return hashValue;
     }
 
@@ -30,10 +30,10 @@ class Register extends React.Component {
         if (!file) {
             alert("Upload image first");
         }
-        else if(photoIdUrl.length===0){
+        else if (photoIdUrl.length === 0) {
             alert("You've chose the image but not uploaded it");
         }
-        else if(photoIdUrl.length===0){
+        else if (photoIdUrl.length === 0) {
             alert("You've chose the image but not uploaded it");
         }
         else if (numberOfTickets <= 0) {
@@ -47,8 +47,15 @@ class Register extends React.Component {
             const createdAt = new Date();
             const snapShot = await firestore.collection('registeredUsers').get();
             const registrationId = snapShot.docs.length + 1;
-            const registeredUser = { fullName, mobileNumber, email, photoIdUrl, registrationType, numberOfTickets, createdAt, registrationId };
-            
+            var ticketId = Math.abs(this.hashFunction(fullName, mobileNumber, email, numberOfTickets));
+            console.log(ticketId);
+            var ticketIds = [];
+            for (var i = 0; i < numberOfTickets; i++) {
+                ticketIds[i] = ticketId++;
+            }
+            console.log(ticketIds);
+            const registeredUser = { fullName, mobileNumber, email, photoIdUrl, registrationType, numberOfTickets, createdAt, registrationId,ticketIds };
+
             try {
                 await userRef.set(registeredUser);
                 alert(`Registration Successful\n Registration ID: ${registrationId}`);
@@ -71,7 +78,7 @@ class Register extends React.Component {
 
 
     handleFileUpload = (event) => {
-        const {file} = this.state;
+        const { file } = this.state;
         if (!file) {
             alert("Upload image and then click on upload button");
         } else {
@@ -114,9 +121,7 @@ class Register extends React.Component {
     }
 
     render() {
-        const { fullName,mobileNumber,email,numberOfTickets } = this.state;
-        const ticketId = Math.abs(this.hashFunction(fullName,mobileNumber,email,numberOfTickets));
-        console.log(ticketId);
+
         return (
             <center>
                 <div className='registration'>
