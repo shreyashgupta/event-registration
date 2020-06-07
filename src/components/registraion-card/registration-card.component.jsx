@@ -14,7 +14,6 @@ const useStyles = makeStyles({
 const RegistrationCard = ({ imageUrl, name, ph, emailId,regId, numTickets, time, date,ticketIds}) => {
   const classes = useStyles();
   const tickets={ticketIds}.ticketIds;
-  console.log(tickets)
   return (
     <Card className={classes.root}>
       <CardActionArea>

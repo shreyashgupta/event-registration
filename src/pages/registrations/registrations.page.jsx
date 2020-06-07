@@ -22,10 +22,7 @@ const Registrations = () => {
     }, [])
 
     const docsArrayDataTimeStamp = docsDataArray.map(docData => docData.createdAt.toDate());
-    console.log(docsArrayDataTimeStamp);
-    console.log(docsDataArray);
     const tickets=docsDataArray.map(docData => docData.ticketIds);
-        console.log(tickets)
     return (
         <div className='registrations'>
             <center><h2 className="tr">Total Number of Registrations: {docsDataArray.length}</h2></center>
