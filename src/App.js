@@ -2,15 +2,15 @@ import React from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from './pages/homepage/homepage.component.jsx';
-import EventList from './pages/event-list/event-list.component';
+// import EventList from './pages/event-list/event-list.component';
 import Header from './components/header/header.component';
-import signInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
+//import signInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import EventRegistration from './pages/event-registration/event-registration.component';
-import Events from './pages/Events/events.component';
+//import EventRegistration from './pages/event-registration/event-registration.component';
+//import Events from './pages/Events/events.component';
 import Register from './pages/register/register.component';
 import AdminLogin from './pages/admin-login/admin-login.component';
-import Registrations from'./pages/registrations/registrations.component';
+import Registrations from './pages/registrations/registrations.component';
 
 class App extends React.Component {
     constructor(props) {
@@ -47,19 +47,24 @@ class App extends React.Component {
     }
 
     render() {
+        
         return (
             <div className="app-js" >
-                <Header currentUser={this.state.currentUser} />
-                <Switch>
+                <Header />
+                    <Switch>
                     <Route exact path='/' component={HomePage} />
                     {/* <Route path='/eventlist' component={EventList} /> */}
                     {/* <Route path='/signin' component={signInAndSignUpPage} /> */}
                     {/* <Route path='/eventregistration' component={EventRegistration} /> */}
                     {/* <Route path='/events' component={Events} /> */}
-                    <Route path='/register'component={Register} />
+                    {
+                        !this.state.currentUser ?
+                        <Route path='/register'component={Register} />
+                        :
+                        <Route path='/registrations' component={Registrations} />
+                    }
                     <Route path='/admin' component={AdminLogin} />
-                    <Route path='/registrations' component={Registrations} />
-                </Switch>
+                    </Switch>
             </div>
 
         )

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './registrations.styles.css';
-import { firestore } from '../../firebase/firebase.utils';
-import { Grid, CardContent, Typography } from '@material-ui/core';
-import RegistrationCard from '../../components/registraionCard/card';
+import { firestore, auth } from '../../firebase/firebase.utils';
+import RegistrationCard from '../../components/registraion-card/registration-card.component';
 let docsArrayData = [], docsArrayDataTimeStamp = [];
 const Registrations = () => {
+
     const functionFirebase = async () => {
         const snapShot = await firestore.collection('registeredUsers').get();
         const docsArray = snapShot.docs;
@@ -23,14 +23,16 @@ const Registrations = () => {
             <div className='doc-data'>
                 {
                     docsArrayData.map((docData, i) => (
-                        <RegistrationCard  
+                        <RegistrationCard
+                            key={i}
                             imageUrl={docData.photoIdUrl}
                             name={docData.fullName}
-                            ph= {docData.mobileNumber}
+                            ph={docData.mobileNumber}
                             emailId={docData.email}
                             numTickets={docData.numberOfTickets}
                             time={docsArrayDataTimeStamp[i].toLocaleTimeString()}
-                            date={docsArrayDataTimeStamp[i].toLocaleDateString()}/>
+                            date={docsArrayDataTimeStamp[i].toLocaleDateString()}
+                        />
                     ))
                 }
             </div>
