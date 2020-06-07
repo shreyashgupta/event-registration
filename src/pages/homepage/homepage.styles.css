@@ -3,16 +3,26 @@ header
 {
     font-size: max(5vw,40px);
     text-align: center;
+    margin:20px;
+
 }
-.artists,.memories
+.meditation>p
 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:space-around;
+  margin: 10px 50px 10px 50px;
+  color:rgba(0,0,255,.4);
+  text-align: center;
+  font-size: 45px;
 }
-.artists>div
+.guru{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.guru>div
 {
     margin:20px;
+    border-radius: 3px;
     box-shadow:
   0 2.8px 2.2px rgba(0, 0, 0, 0.034),
   0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -22,6 +32,22 @@ header
   0 100px 80px rgba(0, 0, 0, 0.12)
 ;
 border-radius: 2
+}
+.gurus
+{
+  margin-top:20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.gurus>*
+{
+  align-self: center;
+}
+.gurus>h2
+{
+  text-align: center;
+  font-size: 30px;
 }
 .memories>div
 {
@@ -36,6 +62,38 @@ border-radius: 2
 ;
 border-radius: 2
 }
+.benefits
+{
+  height: 600px;
+  background-image: url('./meditate.png');
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+.benefits>div
+{
+  margin: 20px;
+  width:700px;
+  font-size: 25px
+}
+@media screen and (max-width: 600px) {
+  .benefits
+  {
+    background-position: center top;
+  }
+ .benefits>div{
+  font-size: 30px;
+  text-align: center;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255,255,255,.3)
+ } 
+ .meditation>p
+ {
+  font-size: 20px;
+ }
+}
+
 /*.event-list div
 {
 flex: 0 0 33.333333%;

@@ -6,8 +6,8 @@ const Hometop = () =>{
 
     	<div className="bg">
     	<div className="text">
-    		<p className='info'>Greatest Festival of all time is back!!</p>
-    		<p className="btn">Know More!</p>
+    		<h1 className='info'>Meditate with us</h1>
+    		<p className="btn">Learn More</p>
     	</div>
     	</div>
     )
