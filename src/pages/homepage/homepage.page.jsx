@@ -1,7 +1,6 @@
 import React from 'react';
 import './homepage.styles.css';
-import Hometop from '../../components/hometop/hometop.component';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 import EventCard from '../../components/event-card/event-card.component'
 const HomePage = () =>{
     const arr=[["https://img.theweek.in/content/dam/week/leisure/lifestyle/images/2018/4/8/sadhguru-jaggi.jpg",
@@ -17,8 +16,13 @@ const HomePage = () =>{
                 ];
     return(
     	<div>
-    	<Hometop/>
-            <div className="about">
+        <div className="bg" >
+            <div className="text" >
+                <h1 className='info'>Meditate with us</h1>
+                <p className="btn"><a href="#lm">Learn More</a></p>
+            </div>
+        </div>
+            <div className="about" id="lm">
             <header>About the Event</header>
             <p>
             During these tough times, keeping one’s composure and calm isn't
@@ -42,7 +46,7 @@ const HomePage = () =>{
                 </div>
             </div>
             <header>Why Meditate?</header>
-            <div className="benefits">
+            <div className="benefits " id="benefits">
             <div>
                 <p>
                     Meditation is the art of looking inside and 

@@ -4,10 +4,12 @@
     flex-direction: column;
     justify-content: center;
     margin-top: 50px;
+
 }
 @media screen and (max-width: 600px) {
     .registration
     {
         width:350px;
     }
+
 }

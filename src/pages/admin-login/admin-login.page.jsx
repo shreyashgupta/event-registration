@@ -1,5 +1,5 @@
 import React from 'react';
-import './admin-login.styles.scss';
+import './admin-login.styles.css';
 import { FormInput, CustomButton } from '../../components';
 import { auth } from '../../firebase/firebase.utils';
 
