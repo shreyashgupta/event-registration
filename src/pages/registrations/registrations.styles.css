@@ -10,6 +10,12 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+.tickets
+{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 .registrations .doc-data>*
 {
     margin:20px;

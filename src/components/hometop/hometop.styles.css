@@ -34,11 +34,14 @@
 	padding: 5px;
 	background-image: linear-gradient(45deg,#7E00DE,#FF3F85);
 	width:150px;
+	background-size: cover;
+	
 	border-radius: 20px;
 }
 @media screen and (max-width: 600px) {
 	.bg
 	{
+		width:100vw;
 		background-image: url("./bg-mobile.jpg");
 	}
 	.text{

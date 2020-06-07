@@ -27,15 +27,17 @@ const RegistrationCard = ({ imageUrl, name, ph, emailId,regId, numTickets, time,
             {name}
           </Typography>
           <div>
-
-              {tickets.map((name) => (
-              
-              <div className="item"><p>TicketId/s: </p><h4>{name}</h4></div>
-              ))}
-            
+            <div className="item"><p>Number of Tickets: </p><h4>{numTickets}</h4></div>
+            <div className="tickets">
+            {
+              tickets.map((name) => ( 
+                <div className="item"><p>TicketId/s: </p><h4>{name}</h4></div>
+                ))
+            }
+            </div>  
             <div className="item"><p>Phone Number: </p><h4>{ph}</h4></div>
             <div className="item"><p>Email: </p><h4>{emailId}</h4></div>
-            <div className="item"><p>Number of Tickets: </p><h4>{numTickets}</h4></div>
+            
             <div className="item"><p>Time: </p><h4>{time}</h4></div>
             <div className="item"><p>Date: </p><h4>{date}</h4></div>
             

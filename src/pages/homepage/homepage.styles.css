@@ -141,45 +141,23 @@ border-radius: 2
   font-size: 20px;
  }
 }
-
-/*.event-list div
+.btn p
 {
-flex: 0 0 33.333333%;
-}*/
-/*.event-list Eventcard
+  width:140px;
+  display: flex;
+  font-size: 18px;
+  color:white;
+  font-weight: bolder;
+  justify-content: center;
+  background-image: linear-gradient(45deg,#5600d8,#340072);
+  margin-top:-10px;
+  border-radius: 25px;
+  padding:10px;
+}
+.btn
 {
-    margin: 10px;
-}*/
-/*.grid-container {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-
-    .common-to-card {
-        background-color: aliceblue;
-        width: 13vw;
-        &:hover {
-            cursor: pointer;
-            transform: scale(1.1);
-            transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-        }
-    }
-    
-    .total{
-        border-bottom: 10px solid rgba(0, 0, 255, 0.5);
-    }
-    
-    .available{
-        border-bottom: 10px solid rgba(0, 255, 0, 1);
-    }
-    
-    .sold{
-        border-bottom: 10px solid rgba(0, 0, 255, 1);
-    }
-    
-    .reserved{
-        border-bottom: 10px solid rgba(255, 100, 255, 1);
-    }
-}*/
-
+  margin-bottom: 20px;
+  display: flex;
+  width:100%;
+  justify-content: center;
+}

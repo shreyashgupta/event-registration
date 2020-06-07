@@ -1,6 +1,7 @@
 import React from 'react';
 import './homepage.styles.css';
 import Hometop from '../../components/hometop/hometop.component';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 import EventCard from '../../components/event-card/event-card.component'
 const HomePage = () =>{
     const arr=[["https://img.theweek.in/content/dam/week/leisure/lifestyle/images/2018/4/8/sadhguru-jaggi.jpg",
@@ -64,10 +65,10 @@ const HomePage = () =>{
                 </ul>
                 </div>
             </div>
-            <div>
-            <button>Register here</button>
             </div>
-        </div>
+            <div className='btn'>
+                <Link to='/Register'><p>Register here</p></Link>
+            </div>
         </div>
     )
 }
