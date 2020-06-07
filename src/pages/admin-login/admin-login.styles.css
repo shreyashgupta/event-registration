@@ -1,0 +1,25 @@
+.logged-in{
+margin: 50px 50px;
+}
+
+.admin-login {
+    width:400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+}
+@media screen and (max-width: 600px) {
+    .admin-login
+    {
+        width:350px;
+    }
+}
+.title {
+    margin: 10px 0;
+}
+.buttons{
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
