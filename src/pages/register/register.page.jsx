@@ -19,14 +19,21 @@ class Register extends React.Component {
         }
     }
 
+    hashFunction = (fullName, mobileNumber, email, numberOfTickets) => {
+        const hashValue = Math.floor((fullName.length + numberOfTickets) * 101 * (mobileNumber.length - 4) / (email.length + 23));
+        return hashValue;
+    }
+
     handleSubmit = async (event) => {
         const { fullName, mobileNumber, email, photoIdUrl, registrationType, numberOfTickets, file } = this.state;
         console.log(this.state);
         if (!file) {
             alert("Upload image first");
-            return;
         }
-        else if(photoIdUrl.length===0){
+        else if (photoIdUrl.length === 0) {
+            alert("You've chose the image but not uploaded it");
+        }
+        else if (photoIdUrl.length === 0) {
             alert("You've chose the image but not uploaded it");
         }
         else if (numberOfTickets <= 0) {
@@ -34,15 +41,21 @@ class Register extends React.Component {
         }
         else if (!(fullName.length > 0 && mobileNumber.length > 0 && email.length > 0)) {
             alert("Enter all the details");
-            return;
         }
         else {
             const userRef = firestore.doc(`registeredUsers/${fullName}`);
             const createdAt = new Date();
             const snapShot = await firestore.collection('registeredUsers').get();
             const registrationId = snapShot.docs.length + 1;
-            const registeredUser = { fullName, mobileNumber, email, photoIdUrl, registrationType, numberOfTickets, createdAt, registrationId };
-            
+            var ticketId = Math.abs(this.hashFunction(fullName, mobileNumber, email, numberOfTickets));
+            console.log(ticketId);
+            var ticketIds = [];
+            for (var i = 0; i < numberOfTickets; i++) {
+                ticketIds[i] = ticketId++;
+            }
+            console.log(ticketIds);
+            const registeredUser = { fullName, mobileNumber, email, photoIdUrl, registrationType, numberOfTickets, createdAt, registrationId,ticketIds };
+
             try {
                 await userRef.set(registeredUser);
                 alert(`Registration Successful\n Registration ID: ${registrationId}`);
@@ -108,6 +121,7 @@ class Register extends React.Component {
     }
 
     render() {
+
         return (
             <center>
                 <div className='registration'>
