@@ -22,8 +22,7 @@ const Registrations = () => {
     }, [])
 
     const docsArrayDataTimeStamp = docsDataArray.map(docData => docData.createdAt.toDate());
-    console.log(docsArrayDataTimeStamp);
-
+    const tickets=docsDataArray.map(docData => docData.ticketIds);
     return (
         <div className='registrations'>
             <center><h2 className="tr">Total Number of Registrations: {docsDataArray.length}</h2></center>
@@ -36,9 +35,11 @@ const Registrations = () => {
                             name={docData.fullName}
                             ph={docData.mobileNumber}
                             emailId={docData.email}
+                            regId={docData.registrationId}
                             numTickets={docData.numberOfTickets}
                             time={docsArrayDataTimeStamp[i].toLocaleTimeString()}
                             date={docsArrayDataTimeStamp[i].toLocaleDateString()}
+                            ticketIds={tickets[i]}
                         />
                     ))
                 }

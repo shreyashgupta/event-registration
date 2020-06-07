@@ -1,6 +1,7 @@
 import React from 'react';
 import './homepage.styles.css';
 import Hometop from '../../components/hometop/hometop.component';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 import EventCard from '../../components/event-card/event-card.component'
 const HomePage = () =>{
     const arr=[["https://img.theweek.in/content/dam/week/leisure/lifestyle/images/2018/4/8/sadhguru-jaggi.jpg",
@@ -43,14 +44,30 @@ const HomePage = () =>{
             <header>Why Meditate?</header>
             <div className="benefits">
             <div>
-            Meditation is the art of looking inside and discovering one’s own 
-            inner being. Meditation leads us not only to totally new inner experiences, 
-            but helps us also to transform our day-to-day life into a better, more meaningful
-             and more fulfilling existence.
+                <p>
+                    Meditation is the art of looking inside and 
+                    discovering one’s own inner being. Meditation leads
+                    us not only to totally new inner experiences, but 
+                    helps us also to transform our day-to-day life into a
+                    better, more meaningful and more fulfilling existence.
+                </p>
+                <p>
+                    Few benefits of meditation are:
+                </p>
+                <div>
+                <ul className="custom-list">
+                     <li>creates mental clarity and calmness</li>
+                    <li>Increased muscle strength and tone</li>
+                    <li>Helps to manage stress</li>
+                    <li>relieves chronic stress patterns</li>
+                    <li>increases body awareness</li>
+                    <li>Developing coping skills</li>
+                </ul>
+                </div>
             </div>
             </div>
-            <div>
-            <button>Register here</button>
+            <div className='btn'>
+                <Link to='/Register'><p>Register here</p></Link>
             </div>
         </div>
     )
