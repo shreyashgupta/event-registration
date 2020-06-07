@@ -89,7 +89,6 @@ class AdminLogin extends React.Component {
                 }
             </center>
         )
-
     }
 }
 
