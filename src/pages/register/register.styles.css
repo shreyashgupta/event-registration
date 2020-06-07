@@ -1,17 +1,13 @@
-@media screen and (max-width: 600px){
-    .registration {
-        width: 300px;
-        display: flex;
-        flex-direction: column;
-        flex-shrink: inherit;
-        margin-top: 50px;
-    } 
-}
-
 .registration {
-    width: 500px;
+	width:400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-top: 50px;
+}
+@media screen and (max-width: 600px) {
+    .registration
+    {
+        width:350px;
+    }
 }

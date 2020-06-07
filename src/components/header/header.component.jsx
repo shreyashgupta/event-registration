@@ -2,7 +2,7 @@ import React from 'react';
 import './header.styles.css';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 import { auth } from '../../firebase/firebase.utils';
-import logo from '../../assets/logo.svg';
+import Logo from '../../assets/logo.svg';
 class Header extends React.Component {
     constructor(props) {
         super(props)
