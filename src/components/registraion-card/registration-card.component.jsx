@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   },
 });
 
-const RegistrationCard = ({ imageUrl, name, ph, emailId, numTickets, time, date }) => {
+const RegistrationCard = ({ imageUrl, name, ph, emailId,regId, numTickets, time, date }) => {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
@@ -26,6 +26,7 @@ const RegistrationCard = ({ imageUrl, name, ph, emailId, numTickets, time, date 
             {name}
           </Typography>
           <Typography variant="body2" component={'span'}>
+            <div className="item"><p>Registration Id: </p><h4>{regId}</h4></div>
             <div className="item"><p>Phone Number: </p><h4>{ph}</h4></div>
             <div className="item"><p>Email: </p><h4>{emailId}</h4></div>
             <div className="item"><p>Number of Tickets: </p><h4>{numTickets}</h4></div>

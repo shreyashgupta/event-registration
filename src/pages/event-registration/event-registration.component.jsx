@@ -7,7 +7,7 @@ import { auth, addEventDetailsForUser } from '../../firebase/firebase.utils';
 import FormInput from '../../components/form-input/form-input.component';
 import CustomButton from '../../components/custom-button/custom-button.component';
 
-import './event-registration.styles.scss';
+import './event-registration.styles.css';
 
 
 class EventRegistration extends React.Component {

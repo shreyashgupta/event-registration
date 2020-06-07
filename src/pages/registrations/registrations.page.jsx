@@ -23,6 +23,7 @@ const Registrations = () => {
 
     const docsArrayDataTimeStamp = docsDataArray.map(docData => docData.createdAt.toDate());
     console.log(docsArrayDataTimeStamp);
+    console.log(docsDataArray);
 
     return (
         <div className='registrations'>
@@ -36,6 +37,7 @@ const Registrations = () => {
                             name={docData.fullName}
                             ph={docData.mobileNumber}
                             emailId={docData.email}
+                            regId={docData.registrationId}
                             numTickets={docData.numberOfTickets}
                             time={docsArrayDataTimeStamp[i].toLocaleTimeString()}
                             date={docsArrayDataTimeStamp[i].toLocaleDateString()}
