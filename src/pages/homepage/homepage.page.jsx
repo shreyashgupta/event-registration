@@ -2,7 +2,6 @@ import React from 'react';
 import './homepage.styles.css';
 import Hometop from '../../components/hometop/hometop.component';
 import EventCard from '../../components/event-card/event-card.component'
-import ImageCard from '../../components/imageCard/event-card.component'
 const HomePage = () =>{
     const arr=[["https://img.theweek.in/content/dam/week/leisure/lifestyle/images/2018/4/8/sadhguru-jaggi.jpg",
                 " Sadhguru",
