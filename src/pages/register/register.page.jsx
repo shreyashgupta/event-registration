@@ -26,6 +26,9 @@ class Register extends React.Component {
             alert("Upload image first");
             return;
         }
+        else if(photoIdUrl.length===0){
+            alert("You've chose the image but not uploaded it");
+        }
         else if (numberOfTickets <= 0) {
             alert("Enter positive value for number of tickets");
         }
