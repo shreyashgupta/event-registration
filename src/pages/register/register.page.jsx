@@ -19,8 +19,9 @@ class Register extends React.Component {
         }
     }
 
-    hashFunction = () => {
-        
+    hashFunction = (fullName,mobileNumber,email,numberOfTickets) => {
+        const hashValue = Math.floor((fullName.length+numberOfTickets) *101* (mobileNumber.length -4) / (email.length +23));
+        return hashValue;
     }
 
     handleSubmit = async (event) => {
@@ -67,7 +68,7 @@ class Register extends React.Component {
 
 
     handleFileUpload = (event) => {
-        const { file } = this.state;
+        const {file} = this.state;
         if (!file) {
             alert("Upload image and then click on upload button");
         } else {
@@ -110,6 +111,9 @@ class Register extends React.Component {
     }
 
     render() {
+        const { fullName,mobileNumber,email,numberOfTickets } = this.state;
+        const ticketId = Math.abs(this.hashFunction(fullName,mobileNumber,email,numberOfTickets));
+        console.log(ticketId);
         return (
             <center>
                 <div className='registration'>
