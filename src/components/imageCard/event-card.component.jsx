@@ -14,15 +14,15 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 250,
-    height:300,
+    width: 250,
+    height:150,
   },
   media: {
-    height: 200,
+    height: 100,
   },
 });
 
-const EventCard = () => {
+const ImageCard = () => {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
@@ -36,14 +36,10 @@ const EventCard = () => {
           <Typography gutterBottom variant="h5" component="h2">
             Event xyz
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            orem Ipsum is simply dummy text of the printing and typesetting industry.
-             Lorem Ipsum has
-          </Typography>
         </CardContent>
       </CardActionArea>
     </Card>
   );
 }
 
-export default EventCard;
+export default ImageCard;

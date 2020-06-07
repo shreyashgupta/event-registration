@@ -56,3 +56,8 @@
 .active {
       border-bottom: solid 2px black;  
 }
+@media screen and (max-width: 600px) {
+ .option{
+  font-size: 12px;
+ } 
+}
