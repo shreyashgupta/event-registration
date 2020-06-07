@@ -24,7 +24,6 @@ class Register extends React.Component {
         console.log(this.state);
         if (!file) {
             alert("Upload image first");
-            return;
         }
         else if(photoIdUrl.length===0){
             alert("You've chose the image but not uploaded it");
@@ -34,7 +33,6 @@ class Register extends React.Component {
         }
         else if (!(fullName.length > 0 && mobileNumber.length > 0 && email.length > 0)) {
             alert("Enter all the details");
-            return;
         }
         else {
             const userRef = firestore.doc(`registeredUsers/${fullName}`);
@@ -108,6 +106,7 @@ class Register extends React.Component {
     }
 
     render() {
+        
         return (
             <center>
                 <div className='registration'>

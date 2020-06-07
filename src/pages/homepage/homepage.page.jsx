@@ -1,8 +1,8 @@
 import React from 'react';
 import './homepage.styles.css';
 import Hometop from '../../components/hometop/hometop.component';
-import EventCard from '../../components/event-card/event-card.component'
-import ImageCard from '../../components/imageCard/event-card.component'
+import EventCard from '../../components/event-card/event-card.component';
+//import ImageCard from '../../components/image-card/image-card.component';
 const HomePage = () =>{
     return(
     	<div>
