@@ -1,8 +1,10 @@
 import React from 'react';
 import './header.styles.css';
 import { Link, NavLink, withRouter } from 'react-router-dom';
-import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { auth } from '../../firebase/firebase.utils';
+import Logo from '../../assets/logo.svg';
+
+
 
 class Header extends React.Component {
     constructor(props) {
@@ -32,7 +34,7 @@ class Header extends React.Component {
         return (
             <div className="header">
                 <Link className="logo-container" to="/">
-                    <Logo className="logo" />
+                   <img src={Logo}/>
                 </Link>
                 <div className="options">
                     <NavLink to className="option" exact to="/">Home</NavLink>                    

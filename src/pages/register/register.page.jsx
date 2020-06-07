@@ -19,6 +19,10 @@ class Register extends React.Component {
         }
     }
 
+    hashFunction = () => {
+        
+    }
+
     handleSubmit = async (event) => {
         const { fullName, mobileNumber, email, photoIdUrl, registrationType, numberOfTickets, file } = this.state;
         console.log(this.state);
@@ -106,7 +110,6 @@ class Register extends React.Component {
     }
 
     render() {
-        
         return (
             <center>
                 <div className='registration'>
