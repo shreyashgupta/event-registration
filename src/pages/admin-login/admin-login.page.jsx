@@ -23,7 +23,12 @@ class AdminLogin extends React.Component {
         try {
             await auth.signInWithEmailAndPassword(email, password);
             alert('Logged in as admin successfully');
-            window.location.assign(`http://${window.location.hostname}:${window.location.port}/registrations`);
+            if(window.location.port){   //
+                window.location.assign(`http://${window.location.hostname}:${window.location.port}/registrations`);
+            }
+            else{
+                window.location.assign(`http://${window.location.hostname}/registrations`);
+            }
 
         } catch (error) {
             console.log(error);

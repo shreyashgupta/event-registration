@@ -16,7 +16,12 @@ class Header extends React.Component {
     handleSignOut = (event) => {
         auth.signOut();
         alert("Logged out successfully");
-        window.location.assign(`http://${window.location.hostname}:${window.location.port}/`);
+        if(window.location.port){
+            window.location.assign(`http://${window.location.hostname}:${window.location.port}/`);
+        }
+        else{
+            window.location.assign(`http://${window.location.hostname}/`);
+        }
     }
 
     componentDidMount() {
