@@ -1,5 +1,5 @@
 import React from 'react';
-import './homepage.styles.css';
+import './hometop.styles.css';
 
 const Hometop = () =>{
     return(

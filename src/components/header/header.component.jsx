@@ -1,12 +1,8 @@
 import React from 'react';
 import './header.styles.css';
 import { Link, NavLink, withRouter } from 'react-router-dom';
-
-import { ReactComponent as Logo, ReactComponent } from '../../assets/crown.svg';
+import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { auth } from '../../firebase/firebase.utils';
-
-
-
 
 class Header extends React.Component {
     constructor(props) {
@@ -32,18 +28,19 @@ class Header extends React.Component {
 
 
     render() {
-        console.log(this.state.history);
+        
         return (
             <div className="header">
                 <Link className="logo-container" to="/">
                     <Logo className="logo" />
                 </Link>
                 <div className="options">
-                    <NavLink to className="option" exact to="/">Home</NavLink>
+                    <NavLink to className="option" exact to="/">Home</NavLink>                    
                     {
                         this.state.currentUser ?
                             <div className="option2">
                                 <NavLink to className="option" to="/registrations">View Registrations</NavLink>
+                                <NavLink to className="option" to="/chart">Chart</NavLink>
                                 <div className="option" onClick={this.handleSignOut}>SIGN OUT</div>
                             </div>
                             :

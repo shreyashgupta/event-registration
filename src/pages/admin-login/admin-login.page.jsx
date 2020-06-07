@@ -1,7 +1,6 @@
 import React from 'react';
 import './admin-login.styles.scss';
-import FormInput from '../../components/form-input/form-input.component';
-import CustomButton from '../../components/custom-button/custom-button.component';
+import { FormInput, CustomButton } from '../../components';
 import { auth } from '../../firebase/firebase.utils';
 
 class AdminLogin extends React.Component {
@@ -24,9 +23,7 @@ class AdminLogin extends React.Component {
         try {
             await auth.signInWithEmailAndPassword(email, password);
             alert('Logged in as admin successfully');
-            this.setState({
-                password: ''
-            }, () => window.location.assign(`http://${window.location.hostname}:${window.location.port}/registrations`))
+            window.location.assign(`http://${window.location.hostname}:${window.location.port}/registrations`);
 
         } catch (error) {
             console.log(error);
@@ -41,10 +38,16 @@ class AdminLogin extends React.Component {
         this.setState({ [name]: value }, () => console.log(this.state.history));
     }
 
+    unsubscribeFromAuth=null;
+
     componentDidMount() {
-        auth.onAuthStateChanged(userAuth => {
+        this.unsubscribeFromAuth= auth.onAuthStateChanged(userAuth => {
             this.setState({ currentUser: userAuth });
         })
+    }
+
+    componentWillUnmount(){
+        this.unsubscribeFromAuth();
     }
 
 
@@ -86,9 +89,6 @@ class AdminLogin extends React.Component {
                 }
             </center>
         )
-
-
-
 
     }
 }

@@ -1,10 +1,8 @@
 import React from 'react';
 import './register.styles.css';
-import FormInput from '../../components/form-input/form-input.component';
-import CustomButton from '../../components/custom-button/custom-button.component';
+import { FormInput, CustomButton } from '../../components';
 import { storage } from '../../firebase/firebase.utils';
 import { firestore } from '../../firebase/firebase.utils';
-
 
 class Register extends React.Component {
     constructor(props) {
@@ -38,12 +36,13 @@ class Register extends React.Component {
         else {
             const userRef = firestore.doc(`registeredUsers/${fullName}`);
             const createdAt = new Date();
-            const registeredUser = { fullName, mobileNumber, email, photoIdUrl, registrationType, numberOfTickets, createdAt };
-
+            const snapShot = await firestore.collection('registeredUsers').get();
+            const registrationId = snapShot.docs.length + 1;
+            const registeredUser = { fullName, mobileNumber, email, photoIdUrl, registrationType, numberOfTickets, createdAt, registrationId };
             
             try {
                 await userRef.set(registeredUser);
-                alert("Registration Successful");
+                alert(`Registration Successful\n Registration ID: ${registrationId}`);
                 this.setState({
                     fullName: '',
                     mobileNumber: '',
@@ -51,7 +50,7 @@ class Register extends React.Component {
                     registrationType: 'self',
                     numberOfTickets: 1,
                     file: null,
-                    photoIdUrl: ''
+                    photoIdUrl: '',
                 })
             } catch (error) {
                 console.log(error);
